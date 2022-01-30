@@ -7,10 +7,11 @@ Date of creation: 31 January 2022
 Bikeshare
 
 ### Description
-Describe what your project is about and what it does
+Bikeshare is a small python application to track and analyze the data from a bikeshare provider from 3 major cities in the US.  
 
 ### Files used
-Include the files used
+README.md
+bikeshare.py
 
 ### Credits
 It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
