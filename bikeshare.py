@@ -151,24 +151,26 @@ def station_stats(df):
 
 def time_format(total_time_in_seconds):
     """Returns a string which converts seconds into days, days, hours, minutes and seconds."""
-    seconds_in_day = 60 * 60 * 24
-    seconds_in_hour = 60 * 60
-    seconds_in_minute = 60
-    total_time_days = total_time_in_seconds // seconds_in_day
-    remaining_time_in_seconds = total_time_in_seconds % seconds_in_day
-    total_time_hours = remaining_time_in_seconds // seconds_in_hour
-    remaining_time_in_seconds %= seconds_in_hour
-    total_time_minutes = remaining_time_in_seconds // seconds_in_minute
-    remaining_time_in_seconds %= seconds_in_minute
+    seconds_in_day = 86400 # [one day has 86400 = 60 * 60 * 24 seconds]
+    seconds_in_hour = 3600 # [one hour has 3600 = 60 * 60 seconds]
+    seconds_in_minute = 60 # [one minute has 60 seconds]
+    time_dict = {}
+    time_dict["day(s)"] = int(total_time_in_seconds // seconds_in_day)
+    total_time_in_seconds %= seconds_in_day
+    time_dict["hour(s)"] = int(total_time_in_seconds // seconds_in_hour)
+    total_time_in_seconds %= seconds_in_hour
+    time_dict["minute(s)"] = int(total_time_in_seconds // seconds_in_minute)
+    total_time_in_seconds %= seconds_in_minute
+    time_dict["second(s)"] = int(round(total_time_in_seconds, 0))
     return_string = ""
-    if total_time_days != 0:
-        return_string += " {} day(s)".format(total_time_days)
-    if total_time_hours != 0:
-        return_string += " {} hour(s)".format(total_time_hours)
-    if total_time_minutes != 0:
-        return_string += " {} minute(s)".format(total_time_minutes)
-    if remaining_time_in_seconds != 0:
-        return_string += " {} seconds".format(remaining_time_in_seconds)
+    if time_dict["day(s)"] != 0:
+        return_string += " {} day(s)".format(time_dict["day(s)"])
+    if time_dict["hour(s)"] != 0:
+        return_string += " {} hour(s)".format(time_dict["hour(s)"])
+    if time_dict["minute(s)"] != 0:
+        return_string += " {} minute(s)".format(time_dict["minute(s)"])
+    if time_dict["second(s)"] != 0:
+        return_string += " {} seconds".format(time_dict["second(s)"])
     return return_string
 
 def trip_duration_stats(df):
