@@ -163,14 +163,9 @@ def time_format(total_time_in_seconds):
     total_time_in_seconds %= seconds_in_minute
     time_dict["second(s)"] = int(round(total_time_in_seconds, 0))
     return_string = ""
-    if time_dict["day(s)"] != 0:
-        return_string += " {} day(s)".format(time_dict["day(s)"])
-    if time_dict["hour(s)"] != 0:
-        return_string += " {} hour(s)".format(time_dict["hour(s)"])
-    if time_dict["minute(s)"] != 0:
-        return_string += " {} minute(s)".format(time_dict["minute(s)"])
-    if time_dict["second(s)"] != 0:
-        return_string += " {} seconds".format(time_dict["second(s)"])
+    for key, value in time_dict.items():
+        if value !=0:
+            return_string += " {} {}".format(value, key)
     return return_string
 
 def trip_duration_stats(df):
