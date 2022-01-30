@@ -13,5 +13,10 @@ Bikeshare is a small python application to track and analyze the data from a bik
 README.md
 bikeshare.py
 
+
+### Contributions
+For any contributions please use the PEP 8 -- Style Guide for Python Code which can be found here:
+https://www.python.org/dev/peps/pep-0008/
+
 ### Credits
 It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
