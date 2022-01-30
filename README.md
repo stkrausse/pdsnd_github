@@ -19,4 +19,6 @@ For any contributions please use the PEP 8 -- Style Guide for Python Code which 
 https://www.python.org/dev/peps/pep-0008/
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+Useful resources have been found here:
+https://docs.python.org/3/tutorial/
+https://pandas.pydata.org/pandas-docs/stable/
